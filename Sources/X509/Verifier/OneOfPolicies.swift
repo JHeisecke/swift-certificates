@@ -71,7 +71,7 @@ extension OneOfPolicyBuilder {
         @usableFromInline
         var second: Second
 
-        @inlinable
+        @usableFromInline
         init(first: First, second: Second) {
             self.first = first
             self.second = second
@@ -127,7 +127,7 @@ extension OneOfPolicyBuilder {
         @usableFromInline
         var wrapped: Wrapped?
 
-        @inlinable
+        @usableFromInline
         init(_ wrapped: Wrapped?) {
             self.wrapped = wrapped
         }
@@ -188,12 +188,10 @@ public struct OneOfPolicies<Policy: VerifierPolicy>: VerifierPolicy {
     @usableFromInline
     var policy: Policy
 
-    @inlinable
     public init(@OneOfPolicyBuilder policy: () throws -> Policy) throws {
         self.policy = try policy()
     }
 
-    @inlinable
     public init(@OneOfPolicyBuilder policy: () -> Policy) {
         self.policy = policy()
     }

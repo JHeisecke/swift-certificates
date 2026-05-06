@@ -43,13 +43,13 @@ struct SubjectPublicKeyInfo: DERImplicitlyTaggable, Hashable, Sendable {
         }
     }
 
-    @inlinable
+    @usableFromInline
     init(algorithmIdentifier: AlgorithmIdentifier, key: ASN1BitString) {
         self.algorithmIdentifier = algorithmIdentifier
         self.key = key
     }
 
-    @inlinable
+    @usableFromInline
     internal init(algorithmIdentifier: AlgorithmIdentifier, key: [UInt8]) {
         self.algorithmIdentifier = algorithmIdentifier
         self.key = ASN1BitString(bytes: key[...])

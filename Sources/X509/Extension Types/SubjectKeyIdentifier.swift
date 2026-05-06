@@ -32,7 +32,6 @@ public struct SubjectKeyIdentifier {
     /// Construct a Subject Key Identifier extension with a specific key identifier.
     ///
     /// - Parameter keyIdentifier: The identifier to associate with this certificate.
-    @inlinable
     public init(keyIdentifier: ArraySlice<UInt8>) {
         self.keyIdentifier = keyIdentifier
     }
@@ -43,7 +42,6 @@ public struct SubjectKeyIdentifier {
     /// - Parameter ext: The ``Certificate/Extension`` to unwrap
     /// - Throws: if the ``Certificate/Extension/oid`` is not equal to
     ///     `ASN1ObjectIdentifier.X509ExtensionID.subjectKeyIdentifier`.
-    @inlinable
     @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, macCatalyst 13, visionOS 1.0, *)
     public init(_ ext: Certificate.Extension) throws {
         guard ext.oid == .X509ExtensionID.subjectKeyIdentifier else {

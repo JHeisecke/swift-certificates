@@ -42,7 +42,7 @@ struct ECDSASignature: DERImplicitlyTaggable, Hashable, Sendable {
     @usableFromInline
     var s: ArraySlice<UInt8>
 
-    @inlinable
+    @usableFromInline
     init(r: ArraySlice<UInt8>, s: ArraySlice<UInt8>) {
         self.r = r
         self.s = s

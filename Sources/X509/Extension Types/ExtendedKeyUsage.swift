@@ -25,7 +25,6 @@ public struct ExtendedKeyUsage {
     /// given usages.
     ///
     /// - Parameter usages: The purposes for which the certificate may be used.
-    @inlinable
     public init<Usages: Sequence>(_ usages: Usages) throws where Usages.Element == Usage {
         self.usages = Array(usages)
 
@@ -69,7 +68,6 @@ public struct ExtendedKeyUsage {
     }
 
     /// Create a new empty ``ExtendedKeyUsage`` object with no usages.
-    @inlinable
     public init() {
         self.usages = []
     }
@@ -204,7 +202,6 @@ extension ExtendedKeyUsage {
         @usableFromInline
         var backing: Backing
 
-        @inlinable
         init(_ backing: Backing) {
             self.backing = backing
         }
@@ -212,7 +209,6 @@ extension ExtendedKeyUsage {
         /// Constructs a ``ExtendedKeyUsage/Usage`` from an opaque oid.
         ///
         /// - Parameter oid: The OID of the usage.
-        @inlinable
         public init(oid: ASN1ObjectIdentifier) {
             switch oid {
             case .ExtendedKeyUsage.serverAuth:
@@ -411,17 +407,17 @@ struct ASN1ExtendedKeyUsage: DERImplicitlyTaggable, Sendable {
     @usableFromInline
     var usages: [ASN1ObjectIdentifier]
 
-    @inlinable
+    @usableFromInline
     init(_ usages: [ASN1ObjectIdentifier]) {
         self.usages = usages
     }
 
-    @inlinable
+    @usableFromInline
     init(_ eku: ExtendedKeyUsage) {
         self.usages = eku.usages.map { ASN1ObjectIdentifier($0) }
     }
 
-    @inlinable
+    @usableFromInline
     init(derEncoded rootNode: ASN1Node, withIdentifier identifier: ASN1Identifier) throws {
         self.usages = try DER.sequence(identifier: identifier, rootNode: rootNode)
     }

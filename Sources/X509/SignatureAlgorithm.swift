@@ -26,7 +26,6 @@ extension Certificate {
         @usableFromInline
         var _algorithmIdentifier: AlgorithmIdentifier
 
-        @inlinable
         init(algorithmIdentifier: AlgorithmIdentifier) {
             switch algorithmIdentifier {
             // Per RFC 4055 § 5, we need to accept the RSA parameters field being

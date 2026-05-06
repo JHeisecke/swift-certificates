@@ -56,7 +56,7 @@ struct CMSContentInfo: DERImplicitlyTaggable, BERImplicitlyTaggable, Hashable, S
     @usableFromInline
     var content: ASN1Any
 
-    @inlinable
+    @usableFromInline
     init(contentType: ASN1ObjectIdentifier, content: ASN1Any) {
         self.contentType = contentType
         self.content = content
@@ -99,7 +99,7 @@ struct CMSContentInfo: DERImplicitlyTaggable, BERImplicitlyTaggable, Hashable, S
 
 @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, macCatalyst 13, visionOS 1.0, *)
 extension CMSContentInfo {
-    @inlinable
+    @usableFromInline
     init(_ signedData: CMSSignedData) throws {
         self.contentType = .cmsSignedData
         self.content = try ASN1Any(erasing: signedData)

@@ -77,7 +77,7 @@ struct TBSCertificate: DERImplicitlyTaggable, Hashable, Sendable {
     @usableFromInline
     var extensions: Certificate.Extensions
 
-    @inlinable
+    @usableFromInline
     internal init(
         version: Certificate.Version,
         serialNumber: Certificate.SerialNumber,

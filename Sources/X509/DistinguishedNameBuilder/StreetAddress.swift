@@ -24,7 +24,6 @@ public struct StreetAddress: RelativeDistinguishedNameConvertible, Sendable {
     /// Construct a street address
     ///
     /// - Parameter name: The value of the street address field
-    @inlinable
     public init(_ name: String) {
         self.name = name
     }

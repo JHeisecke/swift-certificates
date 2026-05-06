@@ -113,7 +113,7 @@ struct BasicConstraintsValue: DERImplicitlyTaggable, Sendable {
     @usableFromInline
     var pathLenConstraint: Int?
 
-    @inlinable
+    @usableFromInline
     init(isCA: Bool, pathLenConstraint: Int?) throws {
         self.isCA = isCA
         self.pathLenConstraint = pathLenConstraint
@@ -127,7 +127,7 @@ struct BasicConstraintsValue: DERImplicitlyTaggable, Sendable {
         }
     }
 
-    @inlinable
+    @usableFromInline
     init(_ ext: BasicConstraints) {
         switch ext {
         case .isCertificateAuthority(maxPathLength: let maxPathLen):

@@ -34,7 +34,7 @@ struct CMSEncapsulatedContentInfo: DERImplicitlyTaggable, BERImplicitlyTaggable,
     @usableFromInline
     var eContent: ASN1OctetString?
 
-    @inlinable
+    @usableFromInline
     init(eContentType: ASN1ObjectIdentifier, eContent: ASN1OctetString? = nil) {
         self.eContentType = eContentType
         self.eContent = eContent

@@ -55,7 +55,7 @@ struct CMSSignedData: DERImplicitlyTaggable, BERImplicitlyTaggable, Hashable, Se
     @usableFromInline var certificates: [Certificate]?
     @usableFromInline var signerInfos: [CMSSignerInfo]
 
-    @inlinable
+    @usableFromInline
     init(
         version: CMSVersion,
         digestAlgorithms: [AlgorithmIdentifier],

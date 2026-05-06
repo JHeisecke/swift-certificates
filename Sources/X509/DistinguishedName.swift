@@ -87,7 +87,6 @@ public struct DistinguishedName {
     /// Construct a ``DistinguishedName`` from a sequence of ``RelativeDistinguishedName``.
     ///
     /// - Parameter rdns: The elements of this ``DistinguishedName``.
-    @inlinable
     public init<RDNSequence: Sequence>(_ rdns: RDNSequence) where RDNSequence.Element == RelativeDistinguishedName {
         self.rdns = Array(rdns)
     }
@@ -98,14 +97,12 @@ public struct DistinguishedName {
     /// transparently.
     ///
     /// - Parameter attributes: The sequence of ``RelativeDistinguishedName/Attribute``s that make up the ``DistinguishedName``.
-    @inlinable
     public init<AttributeSequence: Sequence>(_ attributes: AttributeSequence) throws
     where AttributeSequence.Element == RelativeDistinguishedName.Attribute {
         self.rdns = attributes.map { RelativeDistinguishedName($0) }
     }
 
     /// Construct a new empty ``DistinguishedName``.
-    @inlinable
     public init() {
         self.rdns = []
     }
@@ -188,7 +185,6 @@ extension DistinguishedName: DERSerializable {
 }
 
 extension DistinguishedName: DERParseable {
-    @inlinable
     public init(derEncoded rootNode: ASN1Node) throws {
         self.rdns = try DER.sequence(of: RelativeDistinguishedName.self, identifier: .sequence, rootNode: rootNode)
     }
@@ -210,7 +206,6 @@ extension DistinguishedName: DERImplicitlyTaggable {
         .sequence
     }
 
-    @inlinable
     public init(derEncoded rootNode: ASN1Node, withIdentifier identifier: ASN1Identifier) throws {
         self.rdns = try DER.sequence(of: RelativeDistinguishedName.self, identifier: identifier, rootNode: rootNode)
     }

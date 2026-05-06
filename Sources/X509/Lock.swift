@@ -208,7 +208,7 @@ struct CertificatesLock {
     internal let _storage: LockStorage<Void>
 
     /// Create a new lock.
-    @inlinable
+    @usableFromInline
     init() {
         self._storage = .create(value: ())
     }

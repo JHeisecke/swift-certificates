@@ -46,7 +46,6 @@ public struct OCSPRequesterQueryResult: Sendable {
     @usableFromInline
     var storage: Storage
 
-    @inlinable
     init(_ storage: Storage) {
         self.storage = storage
     }

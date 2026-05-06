@@ -36,7 +36,6 @@ public struct AuthorityKeyIdentifier {
     ///   - keyIdentifier: An opaque sequence of bytes uniquely derived from the public key of the issuing CA.
     ///   - authorityCertIssuer: The name of the issuer of the issuing cert.
     ///   - authorityCertSerialNumber: The serial number of the issuing cert.
-    @inlinable
     public init(
         keyIdentifier: ArraySlice<UInt8>? = nil,
         authorityCertIssuer: [GeneralName]? = nil,
@@ -53,7 +52,6 @@ public struct AuthorityKeyIdentifier {
     /// - Parameter ext: The ``Certificate/Extension`` to unwrap
     /// - Throws: if the ``Certificate/Extension/oid`` is not equal to
     ///     `ASN1ObjectIdentifier.X509ExtensionID.authorityKeyIdentifier`.
-    @inlinable
     public init(_ ext: Certificate.Extension) throws {
         guard ext.oid == .X509ExtensionID.authorityKeyIdentifier else {
             throw CertificateError.incorrectOIDForExtension(
@@ -148,7 +146,7 @@ struct AuthorityKeyIdentifierValue: DERImplicitlyTaggable, Sendable {
     @usableFromInline
     var authorityCertSerialNumber: ArraySlice<UInt8>?
 
-    @inlinable
+    @usableFromInline
     init(
         keyIdentifier: ASN1OctetString?,
         authorityCertIssuer: [GeneralName]?,
@@ -159,7 +157,7 @@ struct AuthorityKeyIdentifierValue: DERImplicitlyTaggable, Sendable {
         self.authorityCertSerialNumber = authorityCertSerialNumber
     }
 
-    @inlinable
+    @usableFromInline
     @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, macCatalyst 13, visionOS 1.0, *)
     init(_ aki: AuthorityKeyIdentifier) {
         self.keyIdentifier = aki.keyIdentifier.map { ASN1OctetString(contentBytes: $0) }

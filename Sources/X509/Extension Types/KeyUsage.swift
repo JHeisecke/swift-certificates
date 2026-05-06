@@ -26,7 +26,6 @@ public struct KeyUsage {
     internal var rawValue: UInt16
 
     /// Construct a ``KeyUsage`` extension with no usages set.
-    @inlinable
     public init() {
         self.rawValue = 0
     }
@@ -56,7 +55,6 @@ public struct KeyUsage {
     ///   - decipherOnly: This only has meaning when the `keyAgreement` field is also `true`. When `true` in that
     ///       case, the subject public key may only be used for decrypting data while performing key
     ///       agreement.
-    @inlinable
     public init(
         digitalSignature: Bool = false,
         nonRepudiation: Bool = false,
@@ -86,7 +84,6 @@ public struct KeyUsage {
     /// - Parameter ext: The ``Certificate/Extension`` to unwrap
     /// - Throws: if the ``Certificate/Extension/oid`` is not equal to
     ///     `ASN1ObjectIdentifier.X509ExtensionID.keyUsage`.
-    @inlinable
     @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, macCatalyst 13, visionOS 1.0, *)
     public init(_ ext: Certificate.Extension) throws {
         guard ext.oid == .X509ExtensionID.keyUsage else {

@@ -77,7 +77,7 @@ struct PKCS8PrivateKey: DERImplicitlyTaggable, Sendable {
         }
     }
 
-    @inlinable
+    @usableFromInline
     init(algorithm: AlgorithmIdentifier, privateKey: ASN1OctetString) {
         self.privateKey = privateKey
         self.algorithm = algorithm

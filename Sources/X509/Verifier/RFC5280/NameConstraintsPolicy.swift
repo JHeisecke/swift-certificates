@@ -244,7 +244,7 @@ extension Certificate {
         @usableFromInline
         var alternativeNames: SubjectAlternativeNames
 
-        @inlinable
+        @usableFromInline
         init(_ certificate: Certificate) throws {
             self.subject = certificate.subject
             self.alternativeNames = try certificate.extensions.subjectAlternativeNames ?? .init()
@@ -263,7 +263,7 @@ extension Certificate {
             @usableFromInline
             var alternativeNames: SubjectAlternativeNames.SubSequence
 
-            @inlinable
+            @usableFromInline
             init(_ subject: DistinguishedName, _ alternativeNames: SubjectAlternativeNames) {
                 self.subject = subject
                 self.alternativeNames = alternativeNames[...]

@@ -56,7 +56,7 @@ extension Certificate.PrivateKey {
         /// data that will be needed at later points. Importantly, some of these operations
         /// can throw, so these are performs during initialisation rather than at later
         /// stages where throwing is unacceptable.
-        @inlinable
+        @usableFromInline
         init(key: SecKey) throws {
             self.privateKey = key
 

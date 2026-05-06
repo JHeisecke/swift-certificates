@@ -27,7 +27,6 @@ public struct ExtensionRequest: Hashable, Sendable {
     ///
     /// - parameters:
     ///     - extensions: The extensions to attach to this ``ExtensionRequest``.
-    @inlinable
     public init(extensions: Certificate.Extensions) {
         self.extensions = extensions
     }
@@ -37,7 +36,6 @@ public struct ExtensionRequest: Hashable, Sendable {
     /// - parameters:
     ///     - attribute: The attribute to unwrap
     /// - throws: If the attribute is ill-formed, or does not contain an ``ExtensionRequest``.
-    @inlinable
     public init(_ attribute: CertificateSigningRequest.Attribute) throws {
         guard attribute.oid == .CSRAttributes.extensionRequest else {
             throw CertificateError.incorrectOIDForAttribute(
@@ -82,12 +80,12 @@ struct ExtensionRequestAttribute: Hashable, Sendable, DERImplicitlyTaggable {
     @usableFromInline
     var extensions: Certificate.Extensions
 
-    @inlinable
+    @usableFromInline
     init(_ extensionRequest: ExtensionRequest) {
         self.extensions = extensionRequest.extensions
     }
 
-    @inlinable
+    @usableFromInline
     init(derEncoded rootNode: ASN1Node, withIdentifier identifier: ASN1Identifier) throws {
         self.extensions = try Certificate.Extensions(
             DER.sequence(

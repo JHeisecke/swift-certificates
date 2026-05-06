@@ -23,7 +23,7 @@ extension Certificate {
         @usableFromInline
         var rawValue: Int
 
-        @inlinable
+        @usableFromInline
         init(rawValue: Int) {
             self.rawValue = rawValue
         }

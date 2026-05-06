@@ -32,7 +32,6 @@ extension Certificate {
         @usableFromInline
         var backing: BackingPublicKey
 
-        @inlinable
         internal init(spki: SubjectPublicKeyInfo) throws {
             switch spki.algorithmIdentifier {
             case .p256PublicKey:
@@ -59,42 +58,36 @@ extension Certificate {
             }
         }
 
-        @inlinable
         internal init(backing: BackingPublicKey) {
             self.backing = backing
         }
 
         /// Construct a public key wrapping a P256 public key.
         /// - Parameter p256: The P256 public key to wrap.
-        @inlinable
         public init(_ p256: P256.Signing.PublicKey) {
             self.backing = .p256(p256)
         }
 
         /// Construct a public key wrapping a P384 public key.
         /// - Parameter p384: The P384 public key to wrap.
-        @inlinable
         public init(_ p384: P384.Signing.PublicKey) {
             self.backing = .p384(p384)
         }
 
         /// Construct a public key wrapping a P521 public key.
         /// - Parameter p521: The P521 public key to wrap.
-        @inlinable
         public init(_ p521: P521.Signing.PublicKey) {
             self.backing = .p521(p521)
         }
 
         /// Construct a public key wrapping a RSA public key.
         /// - Parameter rsa: The RSA public key to wrap.
-        @inlinable
         public init(_ rsa: _RSA.Signing.PublicKey) {
             self.backing = .rsa(rsa)
         }
 
         /// Construct a public key wrapping an Ed25519 public key.
         /// - Parameter ed25519: The Ed25519 public key to wrap.
-        @inlinable
         public init(_ ed25519: Curve25519.Signing.PublicKey) {
             self.backing = .ed25519(ed25519)
         }
@@ -266,7 +259,7 @@ extension Certificate.PublicKey {
 
 @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, macCatalyst 13, visionOS 1.0, *)
 extension SubjectPublicKeyInfo {
-    @inlinable
+    @usableFromInline
     init(_ publicKey: Certificate.PublicKey) {
         let algorithmIdentifier: AlgorithmIdentifier
         let key: ASN1BitString

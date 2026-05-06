@@ -47,7 +47,7 @@ struct RSAPKCS1PublicKey: DERImplicitlyTaggable, Hashable, Sendable {
         }
     }
 
-    @inlinable
+    @usableFromInline
     init(modulus: ArraySlice<UInt8>, publicExponent: ArraySlice<UInt8>) {
         self.modulus = modulus
         self.publicExponent = publicExponent

@@ -27,13 +27,11 @@ public struct SubjectAlternativeNames {
     /// ``GeneralName``s.
     ///
     /// - Parameter names: The names to bind to the subject of the certificate.
-    @inlinable
     public init<Names: Sequence>(_ names: Names) where Names.Element == GeneralName {
         self.names = Array(names)
     }
 
     /// Construct a Subject Alternative Name extension that attests to no names.
-    @inlinable
     public init() {
         self.names = []
     }
@@ -44,7 +42,6 @@ public struct SubjectAlternativeNames {
     /// - Parameter ext: The ``Certificate/Extension`` to unwrap
     /// - Throws: if the ``Certificate/Extension/oid`` is not equal to
     ///     `ASN1ObjectIdentifier.X509ExtensionID.subjectAlternativeName`.
-    @inlinable
     @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, macCatalyst 13, visionOS 1.0, *)
     public init(_ ext: Certificate.Extension) throws {
         guard ext.oid == .X509ExtensionID.subjectAlternativeName else {
