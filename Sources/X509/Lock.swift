@@ -172,7 +172,6 @@ final class LockStorage<Value>: ManagedBuffer<Value, LockPrimitive> {
         }
     }
 
-    @inlinable
     deinit {
         self.withUnsafeMutablePointerToElements { lockPtr in
             LockOperations.destroy(lockPtr)
