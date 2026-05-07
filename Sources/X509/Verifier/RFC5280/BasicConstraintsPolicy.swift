@@ -27,7 +27,6 @@ struct BasicConstraintsPolicy: VerifierPolicy, Sendable {
         .X509ExtensionID.basicConstraints
     ]
 
-    @inlinable
     init() {}
 
     @inlinable

@@ -21,7 +21,6 @@ struct VersionPolicy: VerifierPolicy, Sendable {
     @inlinable
     var verifyingCriticalExtensions: [SwiftASN1.ASN1ObjectIdentifier] { [] }
 
-    @inlinable
     init() {}
 
     @inlinable

@@ -27,7 +27,6 @@ struct NameConstraintsPolicy: VerifierPolicy, Sendable {
         .X509ExtensionID.nameConstraints
     ]
 
-    @inlinable
     init() {}
 
     @inlinable

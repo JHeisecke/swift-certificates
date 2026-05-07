@@ -44,7 +44,7 @@ extension PolicyBuilder {
         @inlinable
         var verifyingCriticalExtensions: [SwiftASN1.ASN1ObjectIdentifier] { [] }
 
-        @inlinable
+        @usableFromInline
         init() {}
 
         @inlinable
