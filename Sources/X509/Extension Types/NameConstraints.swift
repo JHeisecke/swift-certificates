@@ -67,6 +67,7 @@ public struct NameConstraints {
             @usableFromInline
             var wrapped: Int
 
+            @usableFromInline
             init(_ wrapped: Int) {
                 self.wrapped = wrapped
             }
@@ -160,6 +161,7 @@ public struct NameConstraints {
             @usableFromInline
             var wrapped: Int
 
+            @usableFromInline
             init(_ wrapped: Int) {
                 self.wrapped = wrapped
             }
@@ -253,6 +255,7 @@ public struct NameConstraints {
             @usableFromInline
             var wrapped: Int
 
+            @usableFromInline
             init(_ wrapped: Int) {
                 self.wrapped = wrapped
             }
@@ -346,6 +349,7 @@ public struct NameConstraints {
             @usableFromInline
             var wrapped: Int
 
+            @usableFromInline
             init(_ wrapped: Int) {
                 self.wrapped = wrapped
             }

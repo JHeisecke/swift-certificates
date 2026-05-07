@@ -40,6 +40,7 @@ extension Certificate {
         @usableFromInline
         var backing: BackingSignature
 
+        @usableFromInline
         internal init(backing: BackingSignature) {
             self.backing = backing
         }

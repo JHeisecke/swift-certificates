@@ -32,6 +32,7 @@ extension Certificate {
         @usableFromInline
         var backing: BackingPublicKey
 
+        @usableFromInline
         internal init(spki: SubjectPublicKeyInfo) throws {
             switch spki.algorithmIdentifier {
             case .p256PublicKey:

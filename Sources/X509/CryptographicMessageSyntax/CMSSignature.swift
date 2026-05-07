@@ -94,6 +94,7 @@ extension CMSSignature {
 
         public let signingTime: Date?
 
+        @usableFromInline
         init(certificate: Certificate, signingTime: Date? = nil) {
             self.certificate = certificate
             self.signingTime = signingTime

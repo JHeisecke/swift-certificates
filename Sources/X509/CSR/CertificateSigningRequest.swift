@@ -215,6 +215,7 @@ public struct CertificateSigningRequest {
         )
     }
 
+    @usableFromInline
     internal init(
         info: CertificationRequestInfo,
         signatureAlgorithm: AlgorithmIdentifier,

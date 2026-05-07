@@ -56,6 +56,7 @@ public struct RFC5280Policy: VerifierPolicy, Sendable {
     let nameConstraintsPolicy: NameConstraintsPolicy
 
     // private but @inlinable
+    @usableFromInline
     init(expiryPolicy: ExpiryPolicy?) {
         self.versionPolicy = VersionPolicy()
         self.expiryPolicy = expiryPolicy

@@ -43,6 +43,7 @@ extension RelativeDistinguishedName {
             @usableFromInline
             var storage: Storage
 
+            @usableFromInline
             init(storage: Storage) {
                 self.storage = storage
             }

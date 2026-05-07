@@ -75,6 +75,7 @@ extension Certificate {
         /// Serial numbers should be generated randomly, and may contain up to 20 bytes. This
         /// initializer generates a serial number with random numbers from the given `generator`.
         /// - Parameter generator: the generator used to generate random number for the serial number
+        @usableFromInline
         internal init(generator: inout some RandomNumberGenerator) {
             // drop leading zeros as required by the ASN.1 spec for INTEGERs
             self.bytes = ArraySlice(normalisingToASN1IntegerForm: generator.bytes(count: 20))

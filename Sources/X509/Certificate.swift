@@ -320,6 +320,7 @@ public struct Certificate {
         )
     }
 
+    @usableFromInline
     init(
         tbsCertificate: TBSCertificate,
         signatureAlgorithm: AlgorithmIdentifier,

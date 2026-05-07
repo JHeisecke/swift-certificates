@@ -158,6 +158,7 @@ extension PolicyBuilder {
         @usableFromInline
         var storage: Storage
 
+        @usableFromInline
         init(storage: Storage) {
             self.storage = storage
         }
