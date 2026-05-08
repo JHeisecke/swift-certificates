@@ -51,7 +51,6 @@ public struct ServerIdentityPolicy: Sendable {
     /// - parameters:
     ///     - serverHostname: The hostname used to connect to the server.
     ///     - serverIP: The IP address of the server, if known.
-    @inlinable
     public init(
         serverHostname: String?,
         serverIP: String?

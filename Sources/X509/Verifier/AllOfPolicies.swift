@@ -37,12 +37,10 @@ public struct AllOfPolicies<Policy: VerifierPolicy>: VerifierPolicy {
     @usableFromInline
     var policy: Policy
 
-    @inlinable
     public init(@PolicyBuilder policy: () throws -> Policy) throws {
         self.policy = try policy()
     }
 
-    @inlinable
     public init(@PolicyBuilder policy: () -> Policy) {
         self.policy = policy()
     }

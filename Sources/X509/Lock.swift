@@ -172,7 +172,6 @@ final class LockStorage<Value>: ManagedBuffer<Value, LockPrimitive> {
         }
     }
 
-    @inlinable
     deinit {
         self.withUnsafeMutablePointerToElements { lockPtr in
             LockOperations.destroy(lockPtr)
@@ -208,7 +207,7 @@ struct CertificatesLock {
     internal let _storage: LockStorage<Void>
 
     /// Create a new lock.
-    @inlinable
+    @usableFromInline
     init() {
         self._storage = .create(value: ())
     }

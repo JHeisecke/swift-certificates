@@ -76,7 +76,7 @@ struct SEC1PrivateKey: DERImplicitlyTaggable, PEMRepresentable, Sendable {
         }
     }
 
-    @inlinable
+    @usableFromInline
     internal init(privateKey: ASN1OctetString, algorithm: ASN1ObjectIdentifier?, publicKey: ASN1BitString?) throws {
         self.privateKey = privateKey
         self.publicKey = publicKey
@@ -94,7 +94,7 @@ struct SEC1PrivateKey: DERImplicitlyTaggable, PEMRepresentable, Sendable {
         }
     }
 
-    @inlinable
+    @usableFromInline
     init(privateKey: [UInt8], algorithm: AlgorithmIdentifier?, publicKey: [UInt8]) {
         self.privateKey = ASN1OctetString(contentBytes: privateKey[...])
         self.algorithm = algorithm

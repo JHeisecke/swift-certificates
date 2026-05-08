@@ -44,7 +44,7 @@ extension PolicyBuilder {
         @inlinable
         var verifyingCriticalExtensions: [SwiftASN1.ASN1ObjectIdentifier] { [] }
 
-        @inlinable
+        @usableFromInline
         init() {}
 
         @inlinable
@@ -70,7 +70,7 @@ extension PolicyBuilder {
         @usableFromInline
         var second: Second
 
-        @inlinable
+        @usableFromInline
         init(first: First, second: Second) {
             self.first = first
             self.second = second
@@ -119,7 +119,7 @@ extension PolicyBuilder {
         @usableFromInline
         var wrapped: Wrapped?
 
-        @inlinable
+        @usableFromInline
         init(_ wrapped: Wrapped?) {
             self.wrapped = wrapped
         }
@@ -158,7 +158,7 @@ extension PolicyBuilder {
         @usableFromInline
         var storage: Storage
 
-        @inlinable
+        @usableFromInline
         init(storage: Storage) {
             self.storage = storage
         }
@@ -217,7 +217,7 @@ extension PolicyBuilder {
         @usableFromInline
         var wrapped: Wrapped
 
-        @inlinable
+        @usableFromInline
         init(wrapped: Wrapped) {
             self.verifyingCriticalExtensions = wrapped.verifyingCriticalExtensions
             self.wrapped = wrapped

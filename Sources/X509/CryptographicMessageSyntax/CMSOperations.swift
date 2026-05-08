@@ -451,7 +451,6 @@ public enum CMS: Sendable {
     public struct Valid: Hashable, Sendable {
         public var signer: Certificate
 
-        @inlinable
         public init(signer: Certificate) {
             self.signer = signer
         }
@@ -473,13 +472,11 @@ public enum CMS: Sendable {
             public var signer: Certificate
 
             @available(*, deprecated, renamed: "init(failures:signer:)")
-            @inlinable
             public init(validationFailures: [VerificationResult.PolicyFailure], signer: Certificate) {
                 self.policyFailures = validationFailures.map { $0.upgrade() }
                 self.signer = signer
             }
 
-            @inlinable
             public init(validationFailures: [CertificateValidationResult.PolicyFailure], signer: Certificate) {
                 self.policyFailures = validationFailures
                 self.signer = signer
@@ -489,7 +486,6 @@ public enum CMS: Sendable {
         public struct InvalidCMSBlock: Hashable, Swift.Error {
             public var reason: String
 
-            @inlinable
             public init(reason: String) {
                 self.reason = reason
             }

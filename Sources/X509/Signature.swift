@@ -40,12 +40,11 @@ extension Certificate {
         @usableFromInline
         var backing: BackingSignature
 
-        @inlinable
+        @usableFromInline
         internal init(backing: BackingSignature) {
             self.backing = backing
         }
 
-        @inlinable
         public init(signatureAlgorithm: SignatureAlgorithm, signatureBytes: ASN1BitString) throws {
             switch signatureAlgorithm {
             case .ecdsaWithSHA256, .ecdsaWithSHA384, .ecdsaWithSHA512:

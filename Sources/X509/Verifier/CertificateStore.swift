@@ -30,13 +30,11 @@ public struct CertificateStore: Sendable, Hashable {
     /// implementation it can be used interchangeably. For details on why one
     /// may decide to implement a ``CustomCertificateStore``, please see the
     /// documentation on that protocol.
-    @inlinable
     public init(custom: some CustomCertificateStore) {
         backing = .custom(AnyCustomCertificateStore(custom))
     }
 
     /// Initialize a certificate store from a sequence of certificates.
-    @inlinable
     public init(_ certificates: some Sequence<Certificate>) {
         backing = .concrete(.init(certificates))
     }
@@ -86,13 +84,13 @@ extension CertificateStore {
         @usableFromInline
         var additionalTrustRoots: [DistinguishedName: [Certificate]]
 
-        @inlinable
-        public init(_ certificates: some Sequence<Certificate>) {
+        @usableFromInline
+        init(_ certificates: some Sequence<Certificate>) {
             self.systemTrustStore = false
             self.additionalTrustRoots = Dictionary(grouping: certificates, by: \.subject)
         }
 
-        @inlinable
+        @usableFromInline
         init(systemTrustStore: Bool) {
             self.systemTrustStore = systemTrustStore
             self.additionalTrustRoots = [:]

@@ -135,7 +135,6 @@ public struct Critical<BaseExtension: CertificateExtensionConvertible>: Certific
     public var base: BaseExtension
 
     /// Wrap a ``CertificateExtensionConvertible`` value and mark it critical.
-    @inlinable
     public init(_ base: BaseExtension) {
         self.base = base
     }

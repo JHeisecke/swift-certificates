@@ -24,7 +24,6 @@ public struct OrganizationName: RelativeDistinguishedNameConvertible, Sendable {
     /// Construct a new organization name
     ///
     /// - Parameter name: The value of the organization name
-    @inlinable
     public init(_ name: String) {
         self.name = name
     }

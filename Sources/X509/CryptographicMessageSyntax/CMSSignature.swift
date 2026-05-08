@@ -56,7 +56,6 @@ extension CMSSignature: DERImplicitlyTaggable, BERImplicitlyTaggable {
         CMSContentInfo.defaultIdentifier
     }
 
-    @inlinable
     public init(derEncoded rootNode: ASN1Node, withIdentifier identifier: ASN1Identifier) throws {
         guard let base = try CMSContentInfo(derEncoded: rootNode, withIdentifier: identifier).signedData,
             base.version == .v1 || base.version == .v4
@@ -67,7 +66,6 @@ extension CMSSignature: DERImplicitlyTaggable, BERImplicitlyTaggable {
         self.base = base
     }
 
-    @inlinable
     public init(berEncoded rootNode: ASN1Node, withIdentifier identifier: ASN1Identifier) throws {
         guard let base = try CMSContentInfo(berEncoded: rootNode, withIdentifier: identifier).signedData,
             base.version == .v1 || base.version == .v4
@@ -96,7 +94,7 @@ extension CMSSignature {
 
         public let signingTime: Date?
 
-        @inlinable
+        @usableFromInline
         init(certificate: Certificate, signingTime: Date? = nil) {
             self.certificate = certificate
             self.signingTime = signingTime

@@ -24,7 +24,6 @@ public struct CommonName: RelativeDistinguishedNameConvertible, Sendable {
     /// Construct a new common name
     ///
     /// - Parameter name: The value of the common name
-    @inlinable
     public init(_ name: String) {
         self.name = name
     }

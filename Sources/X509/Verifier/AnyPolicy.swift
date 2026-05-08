@@ -30,7 +30,6 @@ public struct AnyPolicy: VerifierPolicy {
     @usableFromInline
     var policy: any VerifierPolicy
 
-    @inlinable
     /// Erases the type of some ``VerifierPolicy`` to ``AnyPolicy``.
     /// - Parameter policy: the concrete ``VerifierPolicy``
     public init(_ policy: some VerifierPolicy) {

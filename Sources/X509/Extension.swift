@@ -59,7 +59,6 @@ extension Certificate {
         ///   - oid: The identifier for this extension type.
         ///   - critical: Whether this extension must be processed in order to trust the certificate.
         ///   - value: The encoded bytes of the value of this extension.
-        @inlinable
         public init(oid: ASN1ObjectIdentifier, critical: Bool, value: ArraySlice<UInt8>) {
             self.oid = oid
             self.critical = critical

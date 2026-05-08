@@ -27,7 +27,7 @@ struct AlgorithmIdentifier: DERImplicitlyTaggable, BERImplicitlyTaggable, Hashab
     @usableFromInline
     var parameters: ASN1Any?
 
-    @inlinable
+    @usableFromInline
     init(algorithm: ASN1ObjectIdentifier, parameters: ASN1Any?) {
         self.algorithm = algorithm
         self.parameters = parameters

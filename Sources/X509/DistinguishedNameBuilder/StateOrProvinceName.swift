@@ -24,7 +24,6 @@ public struct StateOrProvinceName: RelativeDistinguishedNameConvertible, Sendabl
     /// Construct a new state or province name
     ///
     /// - Parameter name: The value of the state or province name
-    @inlinable
     public init(_ name: String) {
         self.name = name
     }

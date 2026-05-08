@@ -33,7 +33,7 @@ struct CMSIssuerAndSerialNumber: DERImplicitlyTaggable, Hashable, Sendable {
     @usableFromInline var issuer: DistinguishedName
     @usableFromInline var serialNumber: Certificate.SerialNumber
 
-    @inlinable
+    @usableFromInline
     init(
         issuer: DistinguishedName,
         serialNumber: Certificate.SerialNumber

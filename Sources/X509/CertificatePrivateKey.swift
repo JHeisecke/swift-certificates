@@ -35,42 +35,36 @@ extension Certificate {
         @usableFromInline
         var backing: BackingPrivateKey
 
-        @inlinable
         internal init(backing: BackingPrivateKey) {
             self.backing = backing
         }
 
         /// Construct a private key wrapping a P256 private key.
         /// - Parameter p256: The P256 private key to wrap.
-        @inlinable
         public init(_ p256: P256.Signing.PrivateKey) {
             self.backing = .p256(p256)
         }
 
         /// Construct a private key wrapping a P384 private key.
         /// - Parameter p384: The P384 private key to wrap.
-        @inlinable
         public init(_ p384: P384.Signing.PrivateKey) {
             self.backing = .p384(p384)
         }
 
         /// Construct a private key wrapping a P521 private key.
         /// - Parameter p521: The P521 private key to wrap.
-        @inlinable
         public init(_ p521: P521.Signing.PrivateKey) {
             self.backing = .p521(p521)
         }
 
         /// Construct a private key wrapping a RSA private key.
         /// - Parameter rsa: The RSA private key to wrap.
-        @inlinable
         public init(_ rsa: _RSA.Signing.PrivateKey) {
             self.backing = .rsa(rsa)
         }
 
         /// Construct a private key wrapping an Ed25519 private key.
         /// - Parameter ed25519: The Ed25519 private key to wrap.
-        @inlinable
         public init(_ ed25519: Curve25519.Signing.PrivateKey) {
             self.backing = .ed25519(ed25519)
         }
@@ -78,14 +72,12 @@ extension Certificate {
         #if canImport(Darwin)
         /// Construct a private key wrapping a SecureEnclave.P256 private key.
         /// - Parameter secureEnclaveP256: The SecureEnclave.P256 private key to wrap.
-        @inlinable
         public init(_ secureEnclaveP256: SecureEnclave.P256.Signing.PrivateKey) {
             self.backing = .secureEnclaveP256(secureEnclaveP256)
         }
 
         /// Construct a private key wrapping a SecKey private key.
         /// - Parameter secKey: The SecKey private key to wrap.
-        @inlinable
         public init(_ secKey: SecKey) throws {
             self.backing = .secKey(try SecKeyWrapper(key: secKey))
         }
@@ -93,7 +85,6 @@ extension Certificate {
 
         /// Construct a private key wrapping a custom private key.
         /// - Parameter custom: The custom private key to wrap.
-        @inlinable
         public init(_ custom: some CustomPrivateKey) {
             self.backing = .custom(custom)
         }

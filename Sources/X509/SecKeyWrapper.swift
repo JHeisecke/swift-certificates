@@ -27,7 +27,7 @@ import Foundation
 extension Certificate.PrivateKey {
     /// A wrapper around ``Security.SecKey`` to allow the use of `SecKey` with certificates.
     @usableFromInline
-    struct SecKeyWrapper: Sendable {
+    struct SecKeyWrapper: @unchecked Sendable {
         @usableFromInline
         let privateKey: SecKey
         @usableFromInline
@@ -56,7 +56,7 @@ extension Certificate.PrivateKey {
         /// data that will be needed at later points. Importantly, some of these operations
         /// can throw, so these are performs during initialisation rather than at later
         /// stages where throwing is unacceptable.
-        @inlinable
+        @usableFromInline
         init(key: SecKey) throws {
             self.privateKey = key
 

@@ -53,7 +53,7 @@ struct CMSAttribute: DERImplicitlyTaggable, BERImplicitlyTaggable, Hashable, Sen
         }
     }
 
-    @inlinable
+    @usableFromInline
     init(attrType: ASN1ObjectIdentifier, attrValues: [ASN1Any]) {
         self.attrType = attrType
         self.attrValues = attrValues

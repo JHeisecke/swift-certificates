@@ -33,7 +33,6 @@ public struct AuthorityInformationAccess {
     /// containing specific access descriptions.
     ///
     /// - Parameter descriptions: The descriptions to include in the AIA extension.
-    @inlinable
     public init<Descriptions: Sequence>(_ descriptions: Descriptions) where Descriptions.Element == AccessDescription {
         self.descriptions = Array(descriptions)
     }
@@ -44,7 +43,6 @@ public struct AuthorityInformationAccess {
     /// - Parameter ext: The ``Certificate/Extension`` to unwrap
     /// - Throws: if the ``Certificate/Extension/oid`` is not equal to
     ///     `ASN1ObjectIdentifier.X509ExtensionID.authorityInformationAccess`.
-    @inlinable
     @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, macCatalyst 13, visionOS 1.0, *)
     public init(_ ext: Certificate.Extension) throws {
         guard ext.oid == .X509ExtensionID.authorityInformationAccess else {
@@ -114,13 +112,11 @@ extension AuthorityInformationAccess {
         public var location: GeneralName
 
         /// Construct a new ``AuthorityInformationAccess/AccessDescription`` from constituent parts.
-        @inlinable
         public init(method: AccessMethod, location: GeneralName) {
             self.method = method
             self.location = location
         }
 
-        @inlinable
         init(_ asn1Form: AIAAccessDescription) {
             self.method = .init(asn1Form.accessMethod)
             self.location = asn1Form.accessLocation
@@ -159,12 +155,10 @@ extension AuthorityInformationAccess.AccessDescription {
             case unknownType(ASN1ObjectIdentifier)
         }
 
-        @inlinable
         init(_ backing: Backing) {
             self.backing = backing
         }
 
-        @inlinable
         init(_ oid: ASN1ObjectIdentifier) {
             switch oid {
             case .AccessMethodIdentifiers.ocspServer:
@@ -264,12 +258,12 @@ struct AuthorityInfoAccessSyntax: DERImplicitlyTaggable, Sendable {
     @usableFromInline
     var descriptions: [AIAAccessDescription]
 
-    @inlinable
+    @usableFromInline
     init(_ aia: AuthorityInformationAccess) {
         self.descriptions = aia.descriptions.map { .init($0) }
     }
 
-    @inlinable
+    @usableFromInline
     init(derEncoded rootNode: ASN1Node, withIdentifier identifier: ASN1Identifier) throws {
         self.descriptions = try DER.sequence(of: AIAAccessDescription.self, identifier: identifier, rootNode: rootNode)
     }
@@ -297,13 +291,13 @@ struct AIAAccessDescription: DERImplicitlyTaggable, Sendable {
     @usableFromInline
     var accessLocation: GeneralName
 
-    @inlinable
+    @usableFromInline
     init(accessMethod: ASN1ObjectIdentifier, accessLocation: GeneralName) {
         self.accessMethod = accessMethod
         self.accessLocation = accessLocation
     }
 
-    @inlinable
+    @usableFromInline
     init(_ description: AuthorityInformationAccess.AccessDescription) {
         self.accessMethod = ASN1ObjectIdentifier(accessMethod: description.method)
         self.accessLocation = description.location

@@ -24,7 +24,6 @@ public struct LocalityName: RelativeDistinguishedNameConvertible, Sendable {
     /// Construct a new locality name
     ///
     /// - Parameter name: The value of the locality name
-    @inlinable
     public init(_ name: String) {
         self.name = name
     }

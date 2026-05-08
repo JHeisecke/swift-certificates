@@ -24,7 +24,7 @@ struct CMSVersion: RawRepresentable, Hashable, Sendable {
     @usableFromInline
     var rawValue: Int
 
-    @inlinable
+    @usableFromInline
     init(rawValue: Int) {
         self.rawValue = rawValue
     }

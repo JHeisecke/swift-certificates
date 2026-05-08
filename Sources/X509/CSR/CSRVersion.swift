@@ -21,7 +21,6 @@ extension CertificateSigningRequest {
     public struct Version {
         public var rawValue: Int
 
-        @inlinable
         public init(rawValue: Int) {
             self.rawValue = rawValue
         }

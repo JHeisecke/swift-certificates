@@ -86,7 +86,6 @@ extension Certificate {
         ///
         /// - Parameter extensions: The base extensions.
         /// - Throws: if multiple extensions have the same OID
-        @inlinable
         public init<Elements>(_ extensions: Elements) throws where Elements: Sequence, Elements.Element == Extension {
             self._extensions = Array(extensions)
 
@@ -153,7 +152,6 @@ extension Certificate.Extensions: Sendable {}
 @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, macCatalyst 13, visionOS 1.0, *)
 extension Certificate.Extensions: RandomAccessCollection {
     /// Produce a new empty Extensions container.
-    @inlinable
     public init() {
         self._extensions = []
     }

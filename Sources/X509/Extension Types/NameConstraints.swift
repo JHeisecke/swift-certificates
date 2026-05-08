@@ -41,12 +41,10 @@ public struct NameConstraints {
             "[\(self.joined(separator: ", "))]"
         }
 
-        @inlinable
         init(subtrees: [GeneralName]) {
             self.subtrees = subtrees
         }
 
-        @inlinable
         public init(_ elements: some Sequence<String>) {
             self.subtrees = elements.map { .dnsName($0) }
         }
@@ -69,7 +67,7 @@ public struct NameConstraints {
             @usableFromInline
             var wrapped: Int
 
-            @inlinable
+            @usableFromInline
             init(_ wrapped: Int) {
                 self.wrapped = wrapped
             }
@@ -137,12 +135,10 @@ public struct NameConstraints {
             "[\(self.lazy.map { String(describing: $0.bytes) }.joined(separator: ", "))]"
         }
 
-        @inlinable
         init(subtrees: [GeneralName]) {
             self.subtrees = subtrees
         }
 
-        @inlinable
         public init(_ elements: some Sequence<ASN1OctetString>) {
             self.subtrees = elements.map { .ipAddress($0) }
         }
@@ -165,7 +161,7 @@ public struct NameConstraints {
             @usableFromInline
             var wrapped: Int
 
-            @inlinable
+            @usableFromInline
             init(_ wrapped: Int) {
                 self.wrapped = wrapped
             }
@@ -233,12 +229,10 @@ public struct NameConstraints {
             "[\(self.joined(separator: ", "))]"
         }
 
-        @inlinable
         init(subtrees: [GeneralName]) {
             self.subtrees = subtrees
         }
 
-        @inlinable
         public init(_ elements: some Sequence<String>) {
             self.subtrees = elements.map { .rfc822Name($0) }
         }
@@ -261,7 +255,7 @@ public struct NameConstraints {
             @usableFromInline
             var wrapped: Int
 
-            @inlinable
+            @usableFromInline
             init(_ wrapped: Int) {
                 self.wrapped = wrapped
             }
@@ -329,12 +323,10 @@ public struct NameConstraints {
             "[\(self.joined(separator: ", "))]"
         }
 
-        @inlinable
         init(subtrees: [GeneralName]) {
             self.subtrees = subtrees
         }
 
-        @inlinable
         public init(_ elements: some Sequence<String>) {
             self.subtrees = elements.map { .uniformResourceIdentifier($0) }
         }
@@ -357,7 +349,7 @@ public struct NameConstraints {
             @usableFromInline
             var wrapped: Int
 
-            @inlinable
+            @usableFromInline
             init(_ wrapped: Int) {
                 self.wrapped = wrapped
             }
@@ -610,7 +602,6 @@ public struct NameConstraints {
     ///   - excludedEmailAddresses: The email address trees that are forbidden in certificates issued by this CA.
     ///   - permittedURIDomains: The URI domains that are permitted in certificates issued by this CA.
     ///   - forbiddenURIDomains: The URI domains that are forbidden in certificates issued by this CA.
-    @inlinable
     public init(
         permittedDNSDomains: some Sequence<String> = [],
         excludedDNSDomains: some Sequence<String> = [],
@@ -647,7 +638,6 @@ public struct NameConstraints {
     /// - Parameters:
     ///   - permittedSubtrees: The complete set of permitted subtrees in ``GeneralName`` form.
     ///   - excludedSubtrees: The complete set of excluded subtrees in ``GeneralName`` form.
-    @inlinable
     public init(
         permittedSubtrees: [GeneralName] = [],
         excludedSubtrees: [GeneralName] = []
@@ -662,7 +652,6 @@ public struct NameConstraints {
     /// - Parameter ext: The ``Certificate/Extension`` to unwrap
     /// - Throws: if the ``Certificate/Extension/oid`` is not equal to
     ///     `ASN1ObjectIdentifier.X509ExtensionID.nameConstraints`.
-    @inlinable
     @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, macCatalyst 13, visionOS 1.0, *)
     public init(_ ext: Certificate.Extension) throws {
         guard ext.oid == .X509ExtensionID.nameConstraints else {
@@ -761,13 +750,13 @@ struct NameConstraintsValue: DERImplicitlyTaggable, Sendable {
     @usableFromInline
     var excludedSubtrees: [GeneralName]?
 
-    @inlinable
+    @usableFromInline
     init(permittedSubtrees: [GeneralName]?, excludedSubtrees: [GeneralName]?) {
         self.permittedSubtrees = permittedSubtrees
         self.excludedSubtrees = excludedSubtrees
     }
 
-    @inlinable
+    @usableFromInline
     init(_ ext: NameConstraints) {
         if !ext.permittedSubtrees.isEmpty {
             self.permittedSubtrees = ext.permittedSubtrees
@@ -846,12 +835,12 @@ struct GeneralSubtrees: DERImplicitlyTaggable, Sendable {
     @usableFromInline
     var base: [GeneralName]
 
-    @inlinable
+    @usableFromInline
     init(_ base: [GeneralName]) {
         self.base = base
     }
 
-    @inlinable
+    @usableFromInline
     init(derEncoded rootNode: ASN1Node, withIdentifier identifier: ASN1Identifier) throws {
         self.base = try DER.sequence(rootNode, identifier: identifier) { nodes in
             var names: [GeneralName] = []

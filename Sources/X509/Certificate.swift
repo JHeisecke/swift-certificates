@@ -177,7 +177,6 @@ public struct Certificate {
     ///   - signatureAlgorithm: The signature algorithm that will be used to produce `signature`. Must be compatible with the private key type.
     ///   - extensions: The extensions on this certificate.
     ///   - issuerPrivateKey: The private key to use to sign this certificate.
-    @inlinable
     public init(
         version: Version,
         serialNumber: SerialNumber,
@@ -234,7 +233,6 @@ public struct Certificate {
     ///   - signatureAlgorithm: The signature algorithm that will be used to produce `signature`. Must be compatible with the private key type.
     ///   - extensions: The extensions on this certificate.
     ///   - issuerAsyncPrivateKey: The private key to use to sign this certificate.
-    @inlinable
     public init(
         version: Version,
         serialNumber: SerialNumber,
@@ -322,7 +320,7 @@ public struct Certificate {
         )
     }
 
-    @inlinable
+    @usableFromInline
     init(
         tbsCertificate: TBSCertificate,
         signatureAlgorithm: AlgorithmIdentifier,

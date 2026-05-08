@@ -90,7 +90,6 @@ public struct CertificateSigningRequest {
     ///   - attributes: The attributes associated with this CSR
     ///   - signatureAlgorithm: The signature algorithm for the signature on this CSR.
     ///   - signature: The signature attached to this CSR.
-    @inlinable
     public init(
         version: Version,
         subject: DistinguishedName,
@@ -125,7 +124,6 @@ public struct CertificateSigningRequest {
     ///   - privateKey: The private key associated with this CSR.
     ///   - attributes: The attributes associated with this CSR
     ///   - signatureAlgorithm: The signature algorithm to use for the signature on this CSR.
-    @inlinable
     public init(
         version: Version,
         subject: DistinguishedName,
@@ -161,7 +159,6 @@ public struct CertificateSigningRequest {
     ///   - asyncPrivateKey: The private key associated with this CSR.
     ///   - attributes: The attributes associated with this CSR
     ///   - signatureAlgorithm: The signature algorithm to use for the signature on this CSR.
-    @inlinable
     public init(
         version: Version,
         subject: DistinguishedName,
@@ -218,7 +215,7 @@ public struct CertificateSigningRequest {
         )
     }
 
-    @inlinable
+    @usableFromInline
     internal init(
         info: CertificationRequestInfo,
         signatureAlgorithm: AlgorithmIdentifier,

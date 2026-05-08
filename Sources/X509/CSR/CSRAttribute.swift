@@ -40,7 +40,6 @@ extension CertificateSigningRequest {
         /// - Parameters:
         ///   - oid: The identifier for this extension type.
         ///   - values: The value of this attribute, erased to `ASN1Any`
-        @inlinable
         public init(oid: ASN1ObjectIdentifier, values: [ASN1Any]) {
             self.oid = oid
             self.values = values

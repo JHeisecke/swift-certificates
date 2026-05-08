@@ -30,7 +30,7 @@ struct Validity: DERImplicitlyTaggable, Hashable, Sendable {
     @usableFromInline
     var notAfter: Time
 
-    @inlinable
+    @usableFromInline
     internal init(notBefore: Time, notAfter: Time) {
         self.notBefore = notBefore
         self.notAfter = notAfter

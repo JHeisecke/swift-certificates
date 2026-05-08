@@ -229,7 +229,7 @@ struct ReverseDNSLabelSequence: Sequence, Sendable {
     @usableFromInline
     var base: String.UTF8View.SubSequence
 
-    @inlinable
+    @usableFromInline
     init(_ base: String.UTF8View.SubSequence) {
         self.base = base
     }
@@ -244,7 +244,7 @@ struct ReverseDNSLabelSequence: Sequence, Sendable {
         @usableFromInline
         var base: String.UTF8View.SubSequence?
 
-        @inlinable
+        @usableFromInline
         init(_ base: String.UTF8View.SubSequence) {
             self.base = base
         }

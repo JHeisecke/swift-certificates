@@ -28,7 +28,7 @@ struct CertificationRequestInfo {
     @usableFromInline
     var attributes: CertificateSigningRequest.Attributes
 
-    @inlinable
+    @usableFromInline
     init(
         version: CertificateSigningRequest.Version,
         subject: DistinguishedName,

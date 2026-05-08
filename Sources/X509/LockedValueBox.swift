@@ -27,7 +27,7 @@ struct LockedValueBox<Value> {
     internal let _storage: LockStorage<Value>
 
     /// Initialize the `Value`.
-    @inlinable
+    @usableFromInline
     init(_ value: Value) {
         self._storage = .create(value: value)
     }

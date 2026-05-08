@@ -40,7 +40,6 @@ public struct RelativeDistinguishedName {
     /// Construct a ``RelativeDistinguishedName`` from a sequence of ``Attribute``.
     ///
     /// - Parameter attributes: The sequence of ``Attribute``s that make up the ``DistinguishedName``.
-    @inlinable
     public init<AttributeSequence: Sequence>(_ attributes: AttributeSequence)
     where AttributeSequence.Element == RelativeDistinguishedName.Attribute {
         self.attributes = .init(attributes)
@@ -55,14 +54,13 @@ public struct RelativeDistinguishedName {
         self.init(CollectionOfOne(attribute))
     }
 
-    @inlinable
+    @usableFromInline
     init(_ attributes: DER.LazySetOfSequence<Attribute>) throws {
         self.attributes = try .init(attributes)
         Self._sortElements(&self.attributes)
     }
 
     /// Create an empty ``RelativeDistinguishedName``.
-    @inlinable
     public init() {
         self.attributes = .init()
     }

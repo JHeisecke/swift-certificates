@@ -58,7 +58,7 @@ struct CMSSignerInfo: DERImplicitlyTaggable, BERImplicitlyTaggable, Hashable, Se
     @usableFromInline var signature: ASN1OctetString
     @usableFromInline var unsignedAttrs: [CMSAttribute]?
 
-    @inlinable
+    @usableFromInline
     init(
         signerIdentifier: CMSSignerIdentifier,
         digestAlgorithm: AlgorithmIdentifier,
@@ -81,7 +81,7 @@ struct CMSSignerInfo: DERImplicitlyTaggable, BERImplicitlyTaggable, Hashable, Se
         self.unsignedAttrs = unsignedAttrs
     }
 
-    @inlinable
+    @usableFromInline
     init(
         version: CMSVersion,
         signerIdentifier: CMSSignerIdentifier,

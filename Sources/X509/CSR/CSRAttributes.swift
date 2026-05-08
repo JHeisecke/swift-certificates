@@ -47,7 +47,6 @@ extension CertificateSigningRequest {
         /// Produce a new Attributes container from a collection of ``CertificateSigningRequest/Attribute``.
         ///
         /// - Parameter attributes: The base attributes.
-        @inlinable
         public init<Elements>(_ attributes: Elements) where Elements: Sequence, Elements.Element == Attribute {
             self._attributes = []
 
@@ -92,7 +91,6 @@ extension CertificateSigningRequest.Attributes: Sendable {}
 
 @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, macCatalyst 13, visionOS 1.0, *)
 extension CertificateSigningRequest.Attributes: RandomAccessCollection {
-    @inlinable
     public init() {
         self._attributes = []
     }

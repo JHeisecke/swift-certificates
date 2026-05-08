@@ -73,19 +73,24 @@ extension _TinyArray: RandomAccessCollection {
 }
 
 extension _TinyArray {
+    @usableFromInline
+    init(_storage: Storage) {
+        self.storage = _storage
+    }
+
     @inlinable
     public init(_ elements: some Sequence<Element>) {
-        self.storage = .init(elements)
+        self.init(_storage: .init(elements))
     }
 
     @inlinable
     public init(_ elements: some Sequence<Result<Element, some Error>>) throws {
-        self.storage = try .init(elements)
+        try self.init(_storage: .init(elements))
     }
 
     @inlinable
     public init() {
-        self.storage = .init()
+        self.init(_storage: .init())
     }
 
     @inlinable

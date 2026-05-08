@@ -47,7 +47,6 @@ public struct ValidatedCertificateChain: Sendable, Collection, RandomAccessColle
     ///     certificate. This type does not perform checks to verify the input.
     ///
     /// - Precondition: The `uncheckedCertificateChain` must contain at least one element.
-    @inlinable
     public init(uncheckedCertificateChain: [Certificate]) {
         precondition(
             uncheckedCertificateChain.count > 0,
@@ -59,7 +58,6 @@ public struct ValidatedCertificateChain: Sendable, Collection, RandomAccessColle
     /// Creates a `ValidatedCertificateChain` that represents a verified chain of trust from leaf to root.
     /// - Parameter validatedChain: The validated certificate chain.
     /// - Precondition: The `validatedChain` must contain at least one certificate.
-    @inlinable
     init(_ validatedChain: [Certificate]) {
         precondition(validatedChain.count > 0, "A valid certificate chain contains at least one certificate.")
         self.validatedChain = validatedChain

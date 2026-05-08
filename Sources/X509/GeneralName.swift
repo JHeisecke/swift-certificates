@@ -163,7 +163,6 @@ extension GeneralName {
 
         public var value: ASN1Any?
 
-        @inlinable
         public init(typeID: ASN1ObjectIdentifier, value: ASN1Any?) {
             self.typeID = typeID
             self.value = value
@@ -213,12 +212,12 @@ struct GeneralNames: DERImplicitlyTaggable, Sendable {
     @usableFromInline
     var names: [GeneralName]
 
-    @inlinable
+    @usableFromInline
     init(_ names: [GeneralName]) {
         self.names = names
     }
 
-    @inlinable
+    @usableFromInline
     init(derEncoded rootNode: ASN1Node, withIdentifier identifier: ASN1Identifier) throws {
         self.names = try DER.sequence(of: GeneralName.self, identifier: identifier, rootNode: rootNode)
     }

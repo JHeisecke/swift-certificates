@@ -31,7 +31,7 @@ struct ExpiryPolicy: VerifierPolicy, Sendable {
 
     /// Creates an instance that will use the the current time (evaluated *at the point of validation*) to verify
     /// whether the certificates in the chain have not expired
-    @inlinable
+    @usableFromInline
     init() {
         self.fixedValidationTime = nil
     }
@@ -46,7 +46,7 @@ struct ExpiryPolicy: VerifierPolicy, Sendable {
     ///   predetermined time *either* in the past or future). Most users should use ``init()``: the expiry of the
     ///   certificates will be validated against the current time (evaluated at the point of validation) when using that
     ///   initializer.
-    @inlinable
+    @usableFromInline
     init(fixedValidationTime: Date) {
         self.fixedValidationTime = GeneralizedTime(fixedValidationTime)
     }
